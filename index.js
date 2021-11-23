@@ -1,6 +1,7 @@
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
+const port=process.env.PORT || 3000;
 
 const app = express()
 
@@ -52,7 +53,8 @@ app.get("/",(req,res)=>{
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(3000);
+}).listen(port, () => {
+    console.log(`sarver is runing on port number ${port}`);
 
+});
 
-console.log("Listening on PORT 3000");
